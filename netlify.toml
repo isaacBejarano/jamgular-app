@@ -3,4 +3,16 @@
 #   command = "npm run jam:sc"
 #   environment = { NODE_VERSION = "14.17.0", NPM_VERSION = "7.20.6" }
 
-# plugins
+
+[[plugins]]
+  package = "netlify-plugin-minify-html"
+
+  [plugins.inputs]
+    contexts = [
+      'production',
+    ]
+
+  [plugins.inputs.minifierOptions]
+    removeComments = false
+    caseSensitive = true
+
