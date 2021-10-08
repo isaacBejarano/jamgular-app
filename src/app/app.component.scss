@@ -1,0 +1,48 @@
+h1 {
+  font-size: 2.2rem;
+  font-weight: normal;
+}
+
+header,
+footer {
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+  color: #4a5e65;
+  background-color: lightblue;
+  box-shadow: 0 0 4px 0 black;
+}
+
+h2 {
+  padding-left: 1rem;
+  text-align: left;
+}
+
+main {
+  padding-top: 3rem;
+}
+
+.idioms-list {
+  padding-left: 0;
+  .idiom-item {
+    list-style: none;
+    border: 1px solid #4a5e65;
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+}
+
+// UTILS
+
+.mw-568 {
+  max-width: 568px;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+.fs-1h {
+  font-size: 1.5rem;
+}
