@@ -1,8 +1,6 @@
-[build]
-	publish = "dist/static" 
-	command = "npm run jam:sc" 
+# [context.production]
+#   publish = "dist/static/"
+#   command = "npm run jam:sc"
+#   environment = { NODE_VERSION = "14.17.0", NPM_VERSION = "7.20.6" }
 
-[context.production]
-  publish = "dist/static/"
-  command = "npm run jam:sc"
-  environment = { NODE_VERSION = "14.17.0", NPM_VERSION = "7.20.6" }
+# plugins
