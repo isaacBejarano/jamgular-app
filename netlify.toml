@@ -1,7 +1,12 @@
-# [context.production]
+[build]
+	publish = "dist/static"
+	command = "npm run jam:sc"
+
+
+[context.production]
 #   publish = "dist/static/"
 #   command = "npm run jam:sc"
-#   environment = { NODE_VERSION = "14.17.0", NPM_VERSION = "7.20.6" }
+   	environment = { NODE_VERSION = "14.17.0", NPM_VERSION = "7.20.6" }
 
 # TODO: mirate todos los configs del Minify HTML
 # TODO: index GOOGLE BOT: Google Console, etc
