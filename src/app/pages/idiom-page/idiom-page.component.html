@@ -1,0 +1,12 @@
+<main>
+  <h2>{{ title | titlecase }}</h2>
+	
+  <ul class="idioms-list">
+    <li class="idiom-item" *ngFor="let idiom of idioms | async">
+      <span class="fs-1h">
+        {{ idiom.fields.f1 }}
+        {{ idiom.fields.f2 }}
+      </span>
+    </li>
+  </ul>
+</main>

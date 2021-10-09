@@ -2,42 +2,30 @@
   <h1>Refranes Españoles</h1>
 </header>
 
-<main class="min-320 mw-568 mx-auto">
-  <section style="margin-bottom: 2.5rem">
-    <h2>Refranes de Temporada</h2>
-    <ul class="idioms-list">
-      <li class="idiom-item" *ngFor="let month of months | async">
-        <span class="fs-1h">
-          {{ month.fields.f1 }}
-          {{ month.fields.f2 }}
-        </span>
-      </li>
-    </ul>
-  </section>
+<!-- TODO: prop all : for later potential translation -->
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/"> Inicio </a>
+    </li>
+    <li>
+      Refranes
+      <ul>
+        <li>
+          <a routerLink="/vulgares"> Vulgares </a>
+        </li>
+        <li>
+          <a routerLink="/de-temporada"> De Temporada </a>
+        </li>
+        <li>
+          <a routerLink="/populares"> Populares </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
-  <section style="margin-bottom: 2.5rem">
-    <h2>Refranes Populares</h2>
-    <ul class="idioms-list">
-      <li class="idiom-item" *ngFor="let popular of populars | async">
-        <span class="fs-1h">
-          {{ popular.fields.f1 }}
-          {{ popular.fields.f2 }}
-        </span>
-      </li>
-    </ul>
-  </section>
-
-  <section style="margin-bottom: 2.5rem">
-    <h2>Refranes Vulgares</h2>
-    <ul class="idioms-list">
-      <li class="idiom-item" *ngFor="let slang of slangs | async">
-        <span class="fs-1h">
-          {{ slang.fields.f1 }}
-          {{ slang.fields.f2 }}
-        </span>
-      </li>
-    </ul>
-  </section>
-</main>
+<!-- <main> -->
+<router-outlet></router-outlet>
 
 <footer>Isaac Bejarano 2021</footer>
