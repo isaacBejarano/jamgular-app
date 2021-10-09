@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import { homeSEO } from './data/homeSEO';
+import { homeSEO } from './data/home-seo';
 import { SeoService } from './services/seo.service';
 import { RestService } from './services/rest.service';
 import { i_Idiom, } from './interfaces/express-api';
