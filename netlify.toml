@@ -3,6 +3,8 @@
 #   command = "npm run jam:sc"
 #   environment = { NODE_VERSION = "14.17.0", NPM_VERSION = "7.20.6" }
 
+# TODO: mirate todos los configs del Minify HTML
+# TODO: index GOOGLE BOT: Google Console, etc
 
 [[plugins]]
   package = "netlify-plugin-minify-html"

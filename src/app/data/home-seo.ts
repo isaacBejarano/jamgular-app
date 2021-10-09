@@ -4,7 +4,7 @@ const domain = environment.host;
 const siteName = 'Refranes Españoles';
 const titleEnd = ' | ' + siteName;
 
-export const homeSEO: any = {
+export const homeSEO: object = {
   author: 'Isaac Bejarano',
   domain: domain,
   slug: '',
