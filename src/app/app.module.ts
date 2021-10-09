@@ -7,9 +7,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { ScullyLibModule } from '@scullyio/ng-lib';
 import { TitleCasePipe } from '@angular/common';
 
+import { PagesModule } from './pages/pages.module';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, ScullyLibModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    PagesModule,
+    ScullyLibModule,
+  ],
   providers: [TitleCasePipe], // alows built-in pipes DI
   bootstrap: [AppComponent],
 })
