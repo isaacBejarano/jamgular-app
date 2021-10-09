@@ -1,26 +1,19 @@
-import { Component, OnDestroy, OnInit, Renderer2 } from '@angular/core';
-import { Observable, of, Subscription } from 'rxjs';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
-import { homeSEO } from './data/home-seo';
 import { SeoService } from './services/seo.service';
 import { RestService } from './services/rest.service';
-import { i_Idiom } from './interfaces/express-api';
-import { i_State } from './interfaces/state';
 import { StoreService } from './services/delta/store.service';
+import { i_Idiom } from './interfaces/express-api';
+import { homeSEO } from './data/home-seo';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   // head
   pageSEO = homeSEO;
-  months: Observable<i_Idiom[]> = of([]);
-  populars: Observable<i_Idiom[]> = of([]);
-
-  // content
-  sub!: Subscription;
 
   constructor(
     private renderer: Renderer2,
@@ -34,30 +27,18 @@ export class AppComponent implements OnInit, OnDestroy {
     this.SEO.renderSEOFriendlyHead(this.renderer, this.pageSEO);
 
     // store
-    this.sub = this.Store.state$.subscribe((s: i_State) => {
-      // ?save
-      if (!s['populares']) {
-        this.REST.getCollection('populars').subscribe((res: i_Idiom[]) => {
-          this.Store.dispatch('setPopulars', res);
-        });
-      }
-
-      if (!s['vulgares']) {
-        this.REST.getCollection('slangs').subscribe((res: i_Idiom[]) => {
-          this.Store.dispatch('setSlangs', res);
-        });
-      }
-
-      if (!s['deTemporada']) {
-        this.REST.getCollection('months').subscribe((res: i_Idiom[]) => {
-          this.Store.dispatch('setMonths', res);
-        });
-      }
+    this.REST.getCollection('populars').subscribe((res: i_Idiom[]) => {
+      this.Store.dispatch('setPopulars', res);
     });
-  }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
+    this.REST.getCollection('slangs').subscribe((res: i_Idiom[]) => {
+      this.Store.dispatch('setSlangs', res);
+    });
+
+    this.REST.getCollection('months').subscribe((res: i_Idiom[]) => {
+      this.Store.dispatch('setMonths', res);
+    });
+    // ...
   }
 
   // FIXME: VERIFICA SEO INDEX, no apareces en SERPS:
