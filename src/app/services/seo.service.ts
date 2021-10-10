@@ -15,110 +15,68 @@ export class SeoService {
     private titlecase: TitleCasePipe
   ) {}
 
-  /* SEO */
-  renderSEOFriendlyHead(renderer: Renderer2, page: any) {
+  updateMetaData(renderer: Renderer2, metaData: any) {
     // Title
-    this.title.setTitle(
-      this.titlecase.transform(<string>page.title + page.titleEnd)
-    );
-
-    // Canonical
-    const head = renderer.selectRootElement('head', true);
-    const link = renderer.createElement('link');
-    renderer.setProperty(link, 'rel', 'canonical');
-    renderer.setAttribute(link, 'href', page.domain + page.slug);
-    renderer.appendChild(head, link);
-
-    // Description - meta
-    this.meta.addTag({
-      name: 'description',
-      content: <string>this.HTMLEntities.transform(page.description),
-    });
-
-    // Robots
-    this.meta.addTag({
-      name: 'robots',
-      content: <string>page.seo.robots.index + ', ' + page.seo.robots.follow,
-    });
-
-    // KeyWords
-    let words = '';
-    for (const word of page.seo.keywords) {
-      words += word + ', ';
-    }
-    this.meta.addTag({
-      name: 'keywords',
-      content: <string>words.substring(0, words.length - 2),
-    });
-
-    // Open Graph
-    const openGrpah = this.setOpenGraph(page.seo.metas);
-
-    for (const meta of openGrpah) {
-      this.meta.addTag({
-        property: meta.property,
-        content: meta.content,
-      });
-    }
-
-    // Robots
-    this.meta.addTag({
-      name: 'author',
-      content: <string>page.author,
-    });
-  }
-
-  updateSEOFriendlyHead(renderer: Renderer2, page: any) {
-    // Title
-    this.title.setTitle(
-      this.titlecase.transform(<string>page.title + page.titleEnd)
-    );
+    this.title.setTitle(this.titlecase.transform(<string>metaData.heading));
 
     // Canonical
     renderer
       .selectRootElement('link[rel=canonical]', true)
-      .setAttribute('href', page.domain + page.slug);
+      .setAttribute('href', metaData.canonical);
 
     // Description
     this.meta.updateTag({
       name: 'description',
-      content: <string>this.HTMLEntities.transform(page.description),
+      content: <string>this.HTMLEntities.transform(metaData.description),
     });
 
     // Robots
     this.meta.updateTag({
       name: 'robots',
-      content: <string>page.seo.robots.index + ', ' + page.seo.robots.follow,
+      content:
+        <string>metaData.seo.robots.index + ', ' + metaData.seo.robots.follow,
     });
 
     // KeyWords
     let words = '';
-    for (const word of page.seo.keywords) {
+
+    for (const word of metaData.seo.keywords) {
       words += word + ', ';
     }
-    this.meta.addTag({
+
+    this.meta.updateTag({
       name: 'keywords',
       content: <string>words.substring(0, words.length - 2),
     });
 
     // Open Graph
-    const OpenGrpah = this.setOpenGraph(page.seo.metas);
+    const OpenGraph = this.setOpenGraph(metaData.seo.metas);
+    const localeAlternateOG = this.setLocaleAlternateOG(metaData.seo.metas);
 
-    for (const meta of OpenGrpah) {
+    for (const meta of OpenGraph) {
       this.meta.updateTag({
+        property: <string>meta.property,
+        content: <string>meta.content,
+      });
+    }
+
+    for (const meta of localeAlternateOG) {
+      this.meta.addTag({
         property: <string>meta.property,
         content: <string>meta.content,
       });
     }
   }
 
-  // AUX
+  // LIB
   setOpenGraph(metas: any): any[] {
-    let metaOG = [
+    return [
       // required
       {
         property: 'og:title',
-        content: metas.find((m: any) => m.property === 'og:title').content,
+        content: this.titlecase.transform(
+          <string>metas.find((m: any) => m.property === 'og:title').content
+        ),
       },
       {
         property: 'og:type',
@@ -165,11 +123,9 @@ export class SeoService {
         content: metas.find((m: any) => m.property === 'og:locale').content,
       },
     ];
+  }
 
-    let localeAlt = metas.filter(
-      (m: any) => m.property === 'og:locale:alternate'
-    );
-
-    return [...metaOG, ...localeAlt];
+  setLocaleAlternateOG(metas: any): any[] {
+    return metas.filter((m: any) => m.property === 'og:locale:alternate');
   }
 }

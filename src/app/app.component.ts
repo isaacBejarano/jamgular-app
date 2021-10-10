@@ -1,10 +1,8 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { SeoService } from './services/seo.service';
 import { RestService } from './services/rest.service';
-import { StoreService } from './services/delta/store.service';
+import { StoreService } from './db/delta/store.service';
 import { i_Idiom } from './interfaces/express-api';
-import { homeSEO } from './data/home-seo';
 
 @Component({
   selector: 'app-root',
@@ -12,20 +10,9 @@ import { homeSEO } from './data/home-seo';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  // head
-  pageSEO = homeSEO;
-
-  constructor(
-    private renderer: Renderer2,
-    private SEO: SeoService,
-    private REST: RestService,
-    private Store: StoreService
-  ) {}
+  constructor(private REST: RestService, private Store: StoreService) {}
 
   ngOnInit(): void {
-    // head
-    this.SEO.renderSEOFriendlyHead(this.renderer, this.pageSEO);
-
     // store
     this.REST.getCollection('populars').subscribe((res: i_Idiom[]) => {
       this.Store.dispatch('setPopulars', res);
@@ -41,7 +28,7 @@ export class AppComponent implements OnInit {
     // ...
   }
 
-  // FIXME: VERIFICA SEO INDEX, no apareces en SERPS:
+  // FIXME: VERIFICA SEO INDEX, no apareces en SERPS: puede tardar un par de dias
   // https://search.google.com/search-console/welcome
   // https://blog.dareboost.com/en/2020/05/preload-prefetch-preconnect-resource-hints/
   // FIXME: PRECONECT ANGULAR for PERFORMANCE VITALS: https://web.dev/uses-rel-preconnect/?utm_source=lighthouse&utm_medium=devtools
