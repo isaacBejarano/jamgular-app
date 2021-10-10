@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { IdiomPageComponent } from './pages/idiom-page/idiom-page.component';
+import { SinglePageComponent } from './pages/single-page/single-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'vulgares', component: IdiomPageComponent },
-  { path: 'de-temporada', component: IdiomPageComponent },
-  { path: 'populares', component: IdiomPageComponent },
+  { path: 'vulgares', component: SinglePageComponent },
+  { path: 'de-temporada', component: SinglePageComponent },
+  { path: 'populares', component: SinglePageComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
