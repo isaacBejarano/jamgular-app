@@ -1,8 +1,9 @@
 import { ScullyConfig } from '@scullyio/scully';
+
 export const config: ScullyConfig = {
-  projectRoot: "./src",
-  projectName: "refranero-espanol-app",
+  projectRoot: './src',
+  projectName: 'refranero-espanol-app',
   outDir: './dist/static',
-  routes: {
-  }
+  routes: {},
+  extraRoutes: ['/populares', '/vulgares', '/de-temporada'],
 };
