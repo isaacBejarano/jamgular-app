@@ -12,6 +12,8 @@ const routes: Routes = [
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
+// TODO: lazyload
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
