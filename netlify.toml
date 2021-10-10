@@ -1,8 +1,37 @@
-[build]
-	publish = "dist/static" 
-	command = "npm run jam:sc" 
+# TODO: mirate todos los configs del Minify HTML
+# TODO: index GOOGLE BOT: Google Console, etc
 
-[context.production]
-  publish = "dist/static/"
-  command = "npm run jam:sc"
-  environment = { NODE_VERSION = "14.17.0", NPM_VERSION = "7.20.6" }
+
+[build]
+	publish = "dist/static"
+	command = "npm run jam:sc"
+
+
+[[plugins]]
+  package = "netlify-plugin-minify-html"
+
+  [plugins.inputs]
+    contexts = [
+      'production',
+    ]
+
+  [plugins.inputs.minifierOptions]
+    removeComments = true
+    caseSensitive = true
+
+
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+
+	[plugins.inputs]
+
+	# The base url of your site (optional, default = main URL set in Netlify)
+	# baseUrl = "https://example.com"
+
+	# Path to the sitemap URL (optional, default = /sitemap.xml)
+	sitemapPath = "/sitemap.xml"
+
+	# Enabled providers to submit sitemap to (optional, default = 'google', 'bing', 'yandex'). Possible providers are currently only 'google', 'bing', 'yandex'.
+	providers = [
+		"google"
+	]
