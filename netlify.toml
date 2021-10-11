@@ -54,6 +54,3 @@
 
     # An array of objects containing `width` and `height` properties to deliver critical CSS for multiple screen resolutions.
     # dimensions = [ { width = 414, height = 896 }, { width = 1920, height = 1080 } ]
-
-
-
