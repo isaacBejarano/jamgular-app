@@ -9,7 +9,7 @@
 # SEO #
 
 [[plugins]]
-  package = "netlify/plugin-sitemap" # -> we need config (automaticaly report sitemap to google)
+  package = "@netlify/plugin-sitemap" # -> we need config (automaticaly report sitemap to google)
 
 	[plugins.inputs]
 	# baseUrl = "https://example.com" # (default = main URL set in Netlify)
