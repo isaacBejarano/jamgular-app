@@ -9,22 +9,14 @@
 # SEO #
 
 [[plugins]]
-  package = "netlify-plugin-submit-sitemap" # -> we need config (automaticaly report sitemap to google)
+  package = "netlify-plugin-submit-sitemap" # IMPORTANT -> It requires a sitemap (e.g. "@netlify/plugin-sitemap" from Netlify UI)
 
 	[plugins.inputs]
-	# baseUrl = "https://example.com" # (default = main URL set in Netlify)
 	sitemapPath = "/sitemap.xml"
+	providers = ["google"]   # (default = 'google', 'bing', 'yandex'). Possible providers are currently only 'google', 'bing', 'yandex'.
+	# baseUrl = "https://example.com"   # (optional, default = main URL set in Netlify)
 
-	# Possible providers are currently only 'google', 'bing', 'yandex'.
-	providers = ["google"]
-
-
-
-# SECURITY #
-
-# netlify-plugin-is-website-vulnerable -> from Netlify UI (no toml config needed yet)
-
-
+	
 
 # PERFORMANCE #
 
@@ -38,8 +30,14 @@
     caseSensitive = true
     removeComments = true
 		collapseWhitespace = true
-		preserveLineBreaks = false
-		html5 = true
+		preserveLineBreaks = false # (def)
+		html5 = true # (def)
 
 
-# netlify-plugin-inline-critical-css -> (Plugin with Bugs. don't use it)
+# "netlify-plugin-inline-critical-css" -> (Plugin with Bugs. don't use it)
+
+
+
+# SECURITY #
+
+# "netlify-plugin-is-website-vulnerable" -> from Netlify UI (no toml config needed yet)
