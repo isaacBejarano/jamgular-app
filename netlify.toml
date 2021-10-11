@@ -34,14 +34,10 @@
 		html5 = true # (def)
 
 
-# "netlify-plugin-inline-critical-css" -> (Plugin with Bugs. don't use it)
+# "netlify-plugin-inline-critical-css" # -> (Plugin with Bugs. don't use it)
 
 
 
 # SECURITY #
 
-<<<<<<< HEAD
-# "netlify-plugin-is-website-vulnerable" -> from Netlify UI (no toml config needed yet)
-=======
-# "netlify-plugin-is-website-vulnerable" -> from Netlify UI (no toml config needed yet)
->>>>>>> 9557810f078ecebf6a30573bfb8c0d7566eb9151
+# "netlify-plugin-is-website-vulnerable" # -> from Netlify UI (no toml config needed yet)
