@@ -8,21 +8,15 @@
 
 # SEO #
 
-# [[plugins]]
-#   package = "@netlify/plugin-sitemap" # -> we need config (automaticaly report sitemap to google)
-# 
-# 	[plugins.inputs]
-# 	# baseUrl = "https://example.com" # (default = main URL set in Netlify)
-# 	sitemapPath = "/sitemap.xml"
-# 
-# 	# Possible providers are currently only 'google', 'bing', 'yandex'.
-# 	providers = ["google"]
+[[plugins]]
+  package = "@netlify/plugin-sitemap" # -> we need config (automaticaly report sitemap to google)
 
+	[plugins.inputs]
+	# baseUrl = "https://example.com" # (default = main URL set in Netlify)
+	sitemapPath = "/sitemap.xml"
 
-
-# SECURITY #
-
-# netlify-plugin-is-website-vulnerable -> from Netlify UI (no toml config needed yet)
+	# Possible providers are currently only 'google', 'bing', 'yandex'.
+	providers = ["google"]
 
 
 
@@ -35,7 +29,7 @@
     contexts = ['production']
 
   [plugins.inputs.minifierOptions]
-    caseSensitive = false
+    caseSensitive = true
     removeComments = true
 		collapseWhitespace = true
 		preserveLineBreaks = false # (def)
@@ -43,3 +37,9 @@
 
 
 # netlify-plugin-inline-critical-css -> (Plugin with Bugs. don't use it)
+
+
+
+# SECURITY #
+
+# netlify-plugin-is-website-vulnerable -> from Netlify UI (no toml config needed yet)
