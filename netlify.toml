@@ -37,6 +37,22 @@
 # "netlify-plugin-inline-critical-css" # -> (Plugin with Bugs. don't use it)
 
 
+# Netlify UI > Build > PotProcessing > Assets Optimization
+
+	[build.processing]
+  	skip_processing = true # Skip all branches, except...
+
+	# ... branch "prod"
+		[context.prod.processing]
+  	skip_processing = false
+	
+	# optimization type (all fail except CSS and IMG)
+		[context.prod.processing.css]
+  		bundle = true
+  		minify = true
+		
+		[context.branch-name.processing.images]
+  		compress = true
 
 # SECURITY #
 
