@@ -1,25 +1,18 @@
 <header>
-  <h1>Refranes Españoles</h1>
+  <h1>{{ title | titlecase }}</h1>
 </header>
 
-<!-- TODO: prop all : for later potential translation -->
-<!-- TODO: NAVBAR paddings passin WebVitals -->
 <nav>
   <ul>
     <li>
-      <a routerLink="/"> Inicio </a>
+      <a routerLink="/"> {{ home | titlecase }} </a>
     </li>
+
     <li>
-      Refranes
+      {{ idioms.name | titlecase }}
       <ul>
-        <li>
-          <a routerLink="/vulgares"> Vulgares </a>
-        </li>
-        <li>
-          <a routerLink="/de-temporada"> De Temporada </a>
-        </li>
-        <li>
-          <a routerLink="/populares"> Populares </a>
+        <li *ngFor="let idiom of idioms.children">
+          <a [routerLink]="idiom[0]"> {{ idiom[1] | titlecase }} </a>
         </li>
       </ul>
     </li>
@@ -29,4 +22,12 @@
 <!-- <main> -->
 <router-outlet></router-outlet>
 
-<footer>Copyright © 2020-2021 Isaac Bejarano</footer>
+<footer>
+  <span class="d-block">
+    {{ footer.copy }}
+  </span>
+  <span class="d-block">
+    Made with {{ footer.made[0] }} and {{ footer.made[1] }}
+  </span>
+  Powered by {{ footer.powered }}
+</footer>
