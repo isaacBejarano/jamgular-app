@@ -9,7 +9,7 @@
 # SEO #
 
 [[plugins]]
-  package = "netlify-plugin-submit-sitemap"
+  package = "netlify-plugin-submit-sitemap" # IMPORTANT -> It requires a sitemap (e.g. "@netlify/plugin-sitemap" from Netlify UI)
 
 	[plugins.inputs]
 	sitemapPath = "/sitemap.xml"
