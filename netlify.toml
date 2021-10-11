@@ -9,7 +9,7 @@
 # SEO #
 
 [[plugins]]
-  package = "@netlify/plugin-sitemap" # -> we need config (automaticaly report sitemap to google)
+  package = "netlify/plugin-sitemap" # -> we need config (automaticaly report sitemap to google)
 
 	[plugins.inputs]
 	# baseUrl = "https://example.com" # (default = main URL set in Netlify)
@@ -36,10 +36,10 @@
 		html5 = true # (def)
 
 
-# netlify-plugin-inline-critical-css -> (Plugin with Bugs. don't use it)
+# "netlify-plugin-inline-critical-css" -> (Plugin with Bugs. don't use it)
 
 
 
 # SECURITY #
 
-# netlify-plugin-is-website-vulnerable -> from Netlify UI (no toml config needed yet)
+# "netlify-plugin-is-website-vulnerable" -> from Netlify UI (no toml config needed yet)
