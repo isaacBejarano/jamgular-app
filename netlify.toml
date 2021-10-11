@@ -8,13 +8,13 @@
 
 # SEO #
 
-[[plugins]]
-  package = "netlify-plugin-submit-sitemap"
-
-	[plugins.inputs]		
-		# baseUrl = "https://example.com" 	# The base url of your site (optional, default = main URL set in Netlify)
-		sitemapPath = "/sitemap.xml" 	# Path to the sitemap URL (optional, default = /sitemap.xml)
-		providers = ["google"] 	# Enabled providers to submit sitemap to (optional, default = 'google', 'bing', 'yandex'). Possible providers are currently only 'google', 'bing', 'yandex'.
+# [[plugins]]
+#   package = "netlify-plugin-submit-sitemap"
+# 
+# 	[plugins.inputs]		
+# 		# baseUrl = "https://example.com" 	# The base url of your site (optional, default = main URL set in Netlify)
+# 		sitemapPath = "/sitemap.xml" 	# Path to the sitemap URL (optional, default = /sitemap.xml)
+# 		providers = ["google"] 	# Enabled providers to submit sitemap to (optional, default = 'google', 'bing', 'yandex'). Possible providers are currently only 'google', 'bing', 'yandex'.
 
 
 
@@ -43,17 +43,14 @@
 		# html5 = true
 
 
-[[plugins]]
-  package = "netlify-plugin-inline-critical-css"
-
-  [plugins.inputs]
-    fileFilter = ["*.html"]		# A filter used to target specific files in the publish directory. Be sure to only target HTML files.
-    directoryFilter = ["!node_modules"] 	# A filter used to target or ignore specific directories in the publish directory.
-    minify = true 	# Whether to minify the generated critical-path CSS.
-    extract = false		# Whether to remove the inlined styles from any stylesheet referenced in the HTML. Use with caution. Removing the critical CSS per page results in a unique async loaded CSS file for every page, meaning you can’t rely on cache across multiple pages.
-
-    # An array of objects containing `width` and `height` properties to deliver critical CSS for multiple screen resolutions.
-    # dimensions = [ { width = 414, height = 896 }, { width = 1920, height = 1080 } ]
-
-
-
+# [[plugins]]
+#   package = "netlify-plugin-inline-critical-css"
+# 
+#   [plugins.inputs]
+#     fileFilter = ["*.html"]		# A filter used to target specific files in the publish directory. Be sure to only target HTML files.
+#     directoryFilter = ["!node_modules"] 	# A filter used to target or ignore specific directories in the publish directory.
+#     minify = true 	# Whether to minify the generated critical-path CSS.
+#     extract = false		# Whether to remove the inlined styles from any stylesheet referenced in the HTML. Use with caution. Removing the critical CSS per page results in a unique async loaded CSS file for every page, meaning you can’t rely on cache across multiple pages.
+# 
+#     # An array of objects containing `width` and `height` properties to deliver critical CSS for multiple screen resolutions.
+#     # dimensions = [ { width = 414, height = 896 }, { width = 1920, height = 1080 } ]
