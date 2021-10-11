@@ -9,7 +9,7 @@
 # SEO #
 
 [[plugins]]
-  package = "netlify-plugin-submit-sitemap" # IMPORTANT -> It requires a sitemap (e.g. "@netlify/plugin-sitemap" from Netlify UI)
+  package = "netlify-plugin-submit-sitemap" # <-> ("@netlify/plugin-sitemap" from Netlify UI installed too)
 
 	[plugins.inputs]
 	sitemapPath = "/sitemap.xml"
@@ -20,18 +20,18 @@
 
 # PERFORMANCE #
 
-[[plugins]]
-  package = "netlify-plugin-minify-html"
-
-  [plugins.inputs]
-    contexts = ['production']
-
-  [plugins.inputs.minifierOptions]
-    caseSensitive = true
-    removeComments = true
-		collapseWhitespace = true
-		preserveLineBreaks = false # (def)
-		html5 = true # (def)
+#	[[plugins]]
+#	  package = "netlify-plugin-minify-html"
+#	
+#	  [plugins.inputs]
+#	    contexts = ['production']
+#	
+#	  [plugins.inputs.minifierOptions]
+#	    caseSensitive = true
+#	    removeComments = true
+#			collapseWhitespace = true
+#			preserveLineBreaks = false # (def)
+#			html5 = true # (def)
 
 
 # "netlify-plugin-inline-critical-css" # -> (Plugin with Bugs. don't use it)
