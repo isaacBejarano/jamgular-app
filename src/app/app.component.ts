@@ -29,8 +29,9 @@ export class AppComponent implements OnInit {
   }
 
   // TODO:
-  // 2. => add contact and copyright + Tech icons "bilt with Angular, Scully, Node, Express, Firestore, powered by Netlify"
-  // 3. => analytics? NEtlify UI or local?
-  // 4. => Algolia
+  // 1- => lazy laod modules
+  // 2. => copyriigt + Tech icons "bilt with Angular, Scully, Node, Express, Firestore, powered by Netlify"
+  // 3. => add contact page
+  // 4. => analytics: NTL UI vs local
 }
 
