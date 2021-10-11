@@ -1,45 +1,59 @@
+# BUILD #
+
 [build]
 	publish = "dist/static"
 	command = "npm run jam:sc"
 
 
-# [context.production]
-#   publish = "dist/static/"
-#   command = "npm run jam:sc"
-#  	environment = { NODE_VERSION = "14.17.0", NPM_VERSION = "7.20.6" }
 
-# TODO: mirate todos los configs del Minify HTML
-# TODO: index GOOGLE BOT: Google Console, etc
+# SEO #
+
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+
+	[plugins.inputs]		
+		# baseUrl = "https://example.com" 	# The base url of your site (optional, default = main URL set in Netlify)
+		sitemapPath = "/sitemap.xml" 	# Path to the sitemap URL (optional, default = /sitemap.xml)
+		providers = ["google"] 	# Enabled providers to submit sitemap to (optional, default = 'google', 'bing', 'yandex'). Possible providers are currently only 'google', 'bing', 'yandex'.
+
+
+
+# SECURITY #
+
+[[plugins]]
+	package = "netlify-plugin-is-website-vulnerable"
+
+
+
+# PERFORMANCE #
 
 [[plugins]]
   package = "netlify-plugin-minify-html"
 
   [plugins.inputs]
-    contexts = [
-      'production',
-    ]
+    contexts = ['production']
 
   [plugins.inputs.minifierOptions]
     removeComments = true
-    caseSensitive = true
+		collapseWhitespace = true
+		preserveLineBreaks = true
+
+		# ignoreCustomComments = ['^(<link rel="canonical" href="">)$']
+    # caseSensitive = false
+		# html5 = true
 
 
 [[plugins]]
-  package = "netlify-plugin-submit-sitemap"
+  package = "netlify-plugin-inline-critical-css"
 
-	[plugins.inputs]
+  [plugins.inputs]
+    fileFilter = ["*.html"]		# A filter used to target specific files in the publish directory. Be sure to only target HTML files.
+    directoryFilter = ["!node_modules"] 	# A filter used to target or ignore specific directories in the publish directory.
+    minify = true 	# Whether to minify the generated critical-path CSS.
+    extract = false		# Whether to remove the inlined styles from any stylesheet referenced in the HTML. Use with caution. Removing the critical CSS per page results in a unique async loaded CSS file for every page, meaning you can’t rely on cache across multiple pages.
 
-	# The base url of your site (optional, default = main URL set in Netlify)
-	# baseUrl = "https://example.com"
-
-	# Path to the sitemap URL (optional, default = /sitemap.xml)
-	sitemapPath = "/sitemap.xml"
-
-	# Enabled providers to submit sitemap to (optional, default = 'google', 'bing', 'yandex'). Possible providers are currently only 'google', 'bing', 'yandex'.
-	providers = [
-		"google"
-	]
+    # An array of objects containing `width` and `height` properties to deliver critical CSS for multiple screen resolutions.
+    # dimensions = [ { width = 414, height = 896 }, { width = 1920, height = 1080 } ]
 
 
-# TODO: NTL other plugins UI install + toml config (try not to install'm locally)
-# TODO: NTL UI ENV: NODe, NPM versions (check no warnbings in deploy log)
+
