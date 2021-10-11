@@ -12,11 +12,8 @@
   package = "@netlify/plugin-sitemap" # -> we need config (automaticaly report sitemap to google)
 
 	[plugins.inputs]
+	providers = ["google"]	# Possible providers are currently only 'google', 'bing', 'yandex'.
 	# baseUrl = "https://example.com" # (default = main URL set in Netlify)
-	sitemapPath = "/sitemap.xml"
-
-	# Possible providers are currently only 'google', 'bing', 'yandex'.
-	providers = ["google"]
 
 
 
