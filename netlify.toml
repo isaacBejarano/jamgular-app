@@ -20,21 +20,22 @@
 
 # PERFORMANCE #
 
-#	[[plugins]]
-#	  package = "netlify-plugin-minify-html"
-#	
-#	  [plugins.inputs]
-#	    contexts = ['production']
-#	
-#	  [plugins.inputs.minifierOptions]
-#	    caseSensitive = true
-#	    removeComments = true
-#			collapseWhitespace = true
-#			preserveLineBreaks = false # (def)
-#			html5 = true # (def)
+ [[plugins]]
+ 	package = "netlify-plugin-minify-html"
+ 	
+ 	[plugins.inputs]
+ 	  contexts = ['production']
+ 	
+ 	[plugins.inputs.minifierOptions]
+ 	  caseSensitive = true
+ 	  removeComments = true
+ 		collapseWhitespace = true
+ 		preserveLineBreaks = false # (def)
+ 		html5 = true # (def)
 
 
-# "netlify-plugin-inline-critical-css" # -> (Plugin with Bugs. don't use it)
+# "netlify-plugin-inline-critical-css" # -> (Plugin with Bugs. Don't use it!)
+# Netlify UI > Build > PotProcessing > Assets Optimization (incompatible with Scully. Don't use'm!)
 
 
 
