@@ -35,11 +35,11 @@
     contexts = ['production']
 
   [plugins.inputs.minifierOptions]
-    caseSensitive = true
+    caseSensitive = false
     removeComments = true
 		collapseWhitespace = true
-		preserveLineBreaks = false
-		html5 = true
+		preserveLineBreaks = false (def)
+		html5 = true (def)
 
 
 # netlify-plugin-inline-critical-css -> (Plugin with Bugs. don't use it)
