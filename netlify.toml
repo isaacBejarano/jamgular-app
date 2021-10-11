@@ -8,13 +8,21 @@
 
 # SEO #
 
-# @netlify/plugin-sitemap@0.8.1 from Netlify UI doen't require definition in toml
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap" # -> we need config (automaticaly report sitemap to google)
+
+	[plugins.inputs]
+	# baseUrl = "https://example.com" # (default = main URL set in Netlify)
+	sitemapPath = "/sitemap.xml"
+
+	# Possible providers are currently only 'google', 'bing', 'yandex'.
+	providers = ["google"]
+
 
 
 # SECURITY #
 
-# [[plugins]]
-# 	package = "netlify-plugin-is-website-vulnerable"
+# netlify-plugin-is-website-vulnerable -> from Netlify UI (no toml config needed yet)
 
 
 
@@ -27,23 +35,11 @@
     contexts = ['production']
 
   [plugins.inputs.minifierOptions]
+    caseSensitive = true
     removeComments = true
 		collapseWhitespace = true
-		preserveLineBreaks = true
-
-		# ignoreCustomComments = ['^(<link rel="canonical" href="">)$']
-    # caseSensitive = false
-		# html5 = true
+		preserveLineBreaks = false
+		html5 = true
 
 
-# [[plugins]]
-#   package = "netlify-plugin-inline-critical-css"
-# 
-#   [plugins.inputs]
-#     fileFilter = ["*.html"]		# A filter used to target specific files in the publish directory. Be sure to only target HTML files.
-#     directoryFilter = ["!node_modules"] 	# A filter used to target or ignore specific directories in the publish directory.
-#     minify = true 	# Whether to minify the generated critical-path CSS.
-#     extract = false		# Whether to remove the inlined styles from any stylesheet referenced in the HTML. Use with caution. Removing the critical CSS per page results in a unique async loaded CSS file for every page, meaning you can’t rely on cache across multiple pages.
-# 
-#     # An array of objects containing `width` and `height` properties to deliver critical CSS for multiple screen resolutions.
-#     # dimensions = [ { width = 414, height = 896 }, { width = 1920, height = 1080 } ]
+# netlify-plugin-inline-critical-css -> (Plugin with Bugs. don't use it)
