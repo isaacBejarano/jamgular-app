@@ -1,0 +1,20 @@
+main {
+  article {
+    padding: 2rem 0;
+    max-width: 768px;
+    margin: 0 auto;
+    .idioms-list {
+      padding-left: 0;
+      .idiom-item {
+        list-style: none;
+        border: 1px solid #4a5e65;
+        border-radius: 15px;
+        padding: 1rem;
+        margin: 0.5rem;
+        span {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}

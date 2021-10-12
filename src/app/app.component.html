@@ -1,33 +1,11 @@
-<header>
-  <h1>{{ title | titlecase }}</h1>
-</header>
+<!-- header -->
+<app-header></app-header>
 
-<nav>
-  <ul>
-    <li>
-      <a routerLink="/"> {{ home | titlecase }} </a>
-    </li>
-
-    <li>
-      {{ idioms.name | titlecase }}
-      <ul>
-        <li *ngFor="let idiom of idioms.children">
-          <a [routerLink]="idiom[0]"> {{ idiom[1] | titlecase }} </a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<!-- navbar -->
+<app-navbar></app-navbar>
 
 <!-- <main> -->
 <router-outlet></router-outlet>
 
-<footer>
-  <span class="d-block">
-    {{ footer.copy }}
-  </span>
-  <span class="d-block">
-    Made with {{ footer.made[0] }} and {{ footer.made[1] }}
-  </span>
-  Powered by {{ footer.powered }}
-</footer>
+<!-- footer -->
+<app-footer></app-footer>
