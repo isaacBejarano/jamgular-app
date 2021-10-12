@@ -57,6 +57,8 @@ export class SinglePageSeoService {
           'refranes',
           'juego de palabras',
           'juego divertido',
+          'chistes',
+          'chistes verdes',
           'diversión',
         ],
         metas: [

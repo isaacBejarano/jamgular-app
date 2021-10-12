@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'vulgares', component: SinglePageComponent },
   { path: 'de-temporada', component: SinglePageComponent },
   { path: 'populares', component: SinglePageComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
 
 // TODO: lazyload

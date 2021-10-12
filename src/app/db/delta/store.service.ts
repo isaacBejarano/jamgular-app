@@ -23,8 +23,9 @@ export class StoreService {
     else if (action === 'setMonths') newState['de-temporada'] = payload;
     // ...
 
-    // NOTE: use slugs syntxa ('a-b-c') for rhe state object
+    // NOTE: use slugs syntax ('a-b-c') for the state object
     // That will make it easier to use slugs for triggering view renders
+    
     this.subj.next(newState);
   }
 }

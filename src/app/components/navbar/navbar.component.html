@@ -1,0 +1,28 @@
+<nav>
+  <!-- hamburger -->
+  <label for="toggler-1" class="hamburger-label"> &#9776;</label>
+  <input id="toggler-1" class="hamburger-checkbox" type="checkbox" />
+
+  <!-- menu -->
+  <ul class="menu">
+    <li class="nav-link menu-item menu-item-btn">
+      <a routerLink="/"> {{ home | titlecase }} </a>
+    </li>
+
+    <!-- dropdown 1 -->
+    <li class="dropdown-nav menu-item menu-item-btn">
+      <label for="toggler-2" class="dropdown-label">
+        {{ idioms.name | titlecase }}
+      </label>
+      <input id="toggler-2" class="dropdown-checkbox" type="checkbox" />
+
+      <ul class="dropdown-menu">
+        <li *ngFor="let idiom of idioms.children" class="dropdown-item">
+          <a [routerLink]="idiom[0]"> {{ idiom[1] | titlecase }} </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- dorpdown N || nav-link N ... -->
+  </ul>
+</nav>

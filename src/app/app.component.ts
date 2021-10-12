@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private REST: RestService, private Store: StoreService) {}
 
   ngOnInit(): void {
-    // store
+    // STORE
     this.REST.getCollection('populars').subscribe((res: i_Idiom[]) => {
       this.Store.dispatch('setPopulars', res);
     });
@@ -29,9 +29,8 @@ export class AppComponent implements OnInit {
   }
 
   // TODO:
-  // 1- => lazy laod modules
-  // 2. => copyriigt + Tech icons "bilt with Angular, Scully, Node, Express, Firestore, powered by Netlify"
-  // 3. => add contact page
-  // 4. => analytics: NTL UI vs local
+  // 1. => lazy laod modules
+  // 2. => modal PEGi acceptance to bypass guard on "Vulgares" route
+  // 2.5 => check lazy loading still works
+  // 3. => analytics: NTL UI vs local
 }
-
