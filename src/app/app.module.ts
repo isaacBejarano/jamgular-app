@@ -8,7 +8,6 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
 import { TitleCasePipe } from '@angular/common';
 
 import { ComponentsModule } from './components/components.module';
-import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,11 +16,9 @@ import { PagesModule } from './pages/pages.module';
     AppRoutingModule,
     HttpClientModule,
     ComponentsModule,
-    PagesModule,
     ScullyLibModule,
   ],
   providers: [TitleCasePipe], // alows built-in pipes DI
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
