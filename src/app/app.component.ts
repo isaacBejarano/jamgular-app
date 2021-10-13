@@ -29,8 +29,7 @@ export class AppComponent implements OnInit {
   }
 
   // TODO:
-  // 1. => lazy laod modules
   // 2. => modal PEGi acceptance to bypass guard on "Vulgares" route
-  // 2.5 => check lazy loading still works
-  // 3. => analytics: NTL UI vs local
+  // 3. => check lazy loading still works
+  // 4. => analytics: NTL UI vs local
 }

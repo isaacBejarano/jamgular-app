@@ -10,5 +10,3 @@ import { SinglePageComponent } from './single-page.component';
   exports: [],
 })
 export class SinglePageModule {}
-
-// FIXME: https://stackblitz.com/edit/angular-lazy-loading-with-complex-module-hierarchy-eg
