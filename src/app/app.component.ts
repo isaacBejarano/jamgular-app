@@ -1,10 +1,8 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { SeoService } from './services/seo.service';
 import { RestService } from './services/rest.service';
-import { StoreService } from './services/delta/store.service';
+import { StoreService } from './data/generator/store.service';
 import { i_Idiom } from './interfaces/express-api';
-import { homeSEO } from './data/home-seo';
 
 @Component({
   selector: 'app-root',
@@ -12,21 +10,10 @@ import { homeSEO } from './data/home-seo';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  // head
-  pageSEO = homeSEO;
-
-  constructor(
-    private renderer: Renderer2,
-    private SEO: SeoService,
-    private REST: RestService,
-    private Store: StoreService
-  ) {}
+  constructor(private REST: RestService, private Store: StoreService) {}
 
   ngOnInit(): void {
-    // head
-    this.SEO.renderSEOFriendlyHead(this.renderer, this.pageSEO);
-
-    // store
+    // STORE
     this.REST.getCollection('populars').subscribe((res: i_Idiom[]) => {
       this.Store.dispatch('setPopulars', res);
     });
@@ -41,25 +28,38 @@ export class AppComponent implements OnInit {
     // ...
   }
 
-  // FIXME: VERIFICA SEO INDEX, no apareces en SERPS:
-  // https://search.google.com/search-console/welcome
-  // https://blog.dareboost.com/en/2020/05/preload-prefetch-preconnect-resource-hints/
-  // FIXME: PRECONECT ANGULAR for PERFORMANCE VITALS: https://web.dev/uses-rel-preconnect/?utm_source=lighthouse&utm_medium=devtools
+  // FIXME: October
 
-  // TODO:
-  // 2. => add contact and copyright + Tech icons "bilt with Angular, Scully, Node, Express, Firestore, powered by Netlify"
-  // 3. => analytics? NEtlify UI or local?
-  // 4. => Algolia
+  // TODO: REFRANERO
+  // FIXME: deploy guards on cdn
+  // 1. => analytics: NTL UI vs local + (read Ad Sense)
+  // 2. KOA API => Authenticate HTTP CALLS to Firestore
+  // 3. Make Game
+  // 4. Ad Sense
+  // 5. donations "pay me a beer" (paypal snippet)
+
+  // TODO: MONTPICOLIS
+  // 1. Links to Dropshipping Website
+  // 2. TERRABIT DNS redirects -> NTL Manual Deploy
+
+  // TODO: PORTFOIO
+  // 1. Rebuild portfolio (migrate data to Firebase)
+  // 2. Add MontPicolis XP
+  // 3. Add Refranero Project
+  // 4. Redirect DS to NTL
+  // 5. CD/CI deploy to NTL
+  // 8. Cancel Account in IONOS. Keekp both domains though
+
+  // FIXME: November
+
+  // TODO: Jamstack Explorers
+  // 1. Angular
+  // 2. Lambda Fn
+  // 3. Headless DB...
+  // 4. Netlify CMS..., Sanity, Strapi, etc...
+
+  // TODO: REFRANERO v.2.0.
+  // 6. Add Donations via Stripe
+
+  // TODO: FIGMA RESUMEE --> 1 page
 }
-
-/*
-MINE: node v14.17.0 ,  npm 7.20.6
-
-ENGINE   package: '@angular-devkit/architect@0.1202.3',
-10:12:06 PM: npm WARN EBADENGINE   required: {
-10:12:06 PM: npm WARN EBADENGINE     node: '^12.14.1 || >=14.0.0',
-10:12:06 PM: npm WARN EBADENGINE     npm: '^6.11.0 || ^7.5.6',
-10:12:06 PM: npm WARN EBADENGINE     yarn: '>= 1.13.0'
-10:12:06 PM: npm WARN EBADENGINE   },
-10:12:06 PM: npm WARN EBADENGINE   current: { node: 'v16.11.0', npm: '8.0.0' }
-*/

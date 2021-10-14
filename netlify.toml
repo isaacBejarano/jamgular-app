@@ -1,45 +1,44 @@
+# BUILD #
+
 [build]
 	publish = "dist/static"
 	command = "npm run jam:sc"
 
 
-# [context.production]
-#   publish = "dist/static/"
-#   command = "npm run jam:sc"
-#  	environment = { NODE_VERSION = "14.17.0", NPM_VERSION = "7.20.6" }
 
-# TODO: mirate todos los configs del Minify HTML
-# TODO: index GOOGLE BOT: Google Console, etc
+# SEO #
 
 [[plugins]]
-  package = "netlify-plugin-minify-html"
-
-  [plugins.inputs]
-    contexts = [
-      'production',
-    ]
-
-  [plugins.inputs.minifierOptions]
-    removeComments = true
-    caseSensitive = true
-
-
-[[plugins]]
-  package = "netlify-plugin-submit-sitemap"
+  package = "netlify-plugin-submit-sitemap" # <-> ("@netlify/plugin-sitemap" from Netlify UI installed too)
 
 	[plugins.inputs]
-
-	# The base url of your site (optional, default = main URL set in Netlify)
-	# baseUrl = "https://example.com"
-
-	# Path to the sitemap URL (optional, default = /sitemap.xml)
 	sitemapPath = "/sitemap.xml"
+	providers = ["google"]   # (default = 'google', 'bing', 'yandex'). Possible providers are currently only 'google', 'bing', 'yandex'.
+	# baseUrl = "https://example.com"   # (optional, default = main URL set in Netlify)
 
-	# Enabled providers to submit sitemap to (optional, default = 'google', 'bing', 'yandex'). Possible providers are currently only 'google', 'bing', 'yandex'.
-	providers = [
-		"google"
-	]
+	
+
+# PERFORMANCE #
+
+ [[plugins]]
+ 	package = "netlify-plugin-minify-html"
+ 	
+ 	[plugins.inputs]
+ 	  contexts = ['production']
+ 	
+ 	[plugins.inputs.minifierOptions]
+ 	  caseSensitive = true
+ 	  removeComments = true
+ 		collapseWhitespace = true
+ 		preserveLineBreaks = false # (def)
+ 		html5 = true # (def)
 
 
-# TODO: NTL other plugins UI install + toml config (try not to install'm locally)
-# TODO: NTL UI ENV: NODe, NPM versions (check no warnbings in deploy log)
+# "netlify-plugin-inline-critical-css" # -> (Plugin with Bugs. Don't use it!)
+# Netlify UI > Build > PotProcessing > Assets Optimization (incompatible with Scully. Don't use'm!)
+
+
+
+# SECURITY #
+
+# "netlify-plugin-is-website-vulnerable" # -> from Netlify UI (no toml config needed yet)

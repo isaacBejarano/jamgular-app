@@ -2,13 +2,20 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { IdiomPageComponent } from './pages/idiom-page/idiom-page.component';
+import { PegiGuard } from './guards/pegi.guard';
 
 const routes: Routes = [
+  // eager
   { path: '', component: HomePageComponent },
-  { path: 'vulgares', component: IdiomPageComponent },
-  { path: 'de-temporada', component: IdiomPageComponent },
-  { path: 'populares', component: IdiomPageComponent },
+  // lazy - import here, not in app.module
+  {
+    path: '',
+    loadChildren: () =>
+      import('./pages/single-page/single-page.module').then(
+        (m) => m.SinglePageModule
+      ),
+  },
+  // redirects - cascade
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
