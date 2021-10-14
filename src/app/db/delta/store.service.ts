@@ -19,7 +19,6 @@ export class StoreService {
 
     // relevance DESC order for RAM efficciency
     if (action === 'setPopulars') newState['populares'] = <i_Idiom[]>payload;
-    else if (action === 'bypassPegi') newState['bypassPegi'] = <boolean>payload;
     else if (action === 'setSlangs') newState['vulgares'] = <i_Idiom[]>payload;
     else if (action === 'setMonths') newState['de-temporada'] = <i_Idiom[]>payload;
     // ...

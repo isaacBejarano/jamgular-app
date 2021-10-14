@@ -40,12 +40,28 @@ a {
 }
 
 // TREE
-header,
+header:not(article header),
 footer {
   text-align: center;
   color: $primary;
   background-color: $ternary;
   box-shadow: 0px -4px 4px -5px #000;
+}
+
+// PEGI
+article {
+  header {
+    display: flex;
+  }
+  .pegi {
+    margin: auto 0;
+    line-height: 0;
+    padding: 0;
+    * {
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+  }
 }
 
 // UTILS
