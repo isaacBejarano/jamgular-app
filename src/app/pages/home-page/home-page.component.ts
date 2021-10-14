@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { SinglePageSeoService } from '@app/db/single-page-seo.service';
-import { SeoService } from '@app/services/seo.service';
+import { SinglePageSeoService } from '@app/services/seo/single-page-seo.service';
+import { SeoService } from '@app/services/seo/seo.service';
 
 @Component({
   selector: 'app-home-page',
