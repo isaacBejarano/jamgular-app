@@ -29,7 +29,6 @@ export class AppComponent implements OnInit {
   }
 
   // TODO:
-  // 3. => check lazy loading still works
   // 4. => analytics: NTL UI vs local + (read Ad Sense)
   // 5. Make Game
   // 6. KOA API =>Authenticate HTTP CALLS to Firestore

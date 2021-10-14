@@ -11,7 +11,7 @@ export class PegiGuard implements CanActivate {
   pegiDesc = `${this.pegiTitle.toUpperCase()}. Puede contener malas palabras, sexualidad, amenazas y toda clase de insultos`;
 
   // guard + redirect
-  bypassPegi: boolean =true;
+  bypassPegi!: boolean;
   redirectTo = '';
 
   constructor(private router: Router) {}
@@ -19,11 +19,9 @@ export class PegiGuard implements CanActivate {
   canActivate(): boolean {
     // 1. define [bypassPegi] / confirm only once
     if (this.bypassPegi === undefined) {
-      const confirmAge = <boolean>(
-        confirm(`PEGI ${this.pegiNum}.
+      const confirmAge = <boolean>confirm(`PEGI ${this.pegiNum}.
         \nEsta página contiene ${this.pegiDesc}. Debes tener ${this.pegiNum} años o más, para acceder a esta página.
-        \n"Acepta" si tienes ${this.pegiNum} años o más.\n"Cancela" si no los tienes (serás redirigido/a a la página de Inicio).`)
-      );
+        \n"Acepta" si tienes ${this.pegiNum} años o más.\n"Cancela" si no los tienes (serás redirigido/a a la página de Inicio).`);
 
       // bypass guard
       this.bypassPegi = confirmAge;
