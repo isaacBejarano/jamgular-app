@@ -11,7 +11,7 @@ export class PegiGuard implements CanActivate {
   pegiDesc = `${this.pegiTitle.toUpperCase()}. Puede contener malas palabras, sexualidad, amenazas y toda clase de insultos`;
 
   // guard + redirect
-  bypassPegi!: boolean;
+  bypassPegi: boolean = true;
   redirectTo = '';
 
   constructor(private router: Router) {}
