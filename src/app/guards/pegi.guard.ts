@@ -13,14 +13,15 @@ export class PegiGuard implements CanActivate {
   pegiNum = 16;
   pegiDesc =
     'lenguaje soez. Puede contener malas palabras, sexualidad, amenazas y toda clase de insultos';
-  acceptRedirect = false;
+  // acceptRedirect = false;
   redirectTo = '';
 
   constructor(public Store: StoreService, private router: Router) {}
 
   canActivate(): boolean {
     // 1. Confirm only once
-    this.Store.state$.pipe(take(1)).subscribe((s: i_State) => {
+    this.Store.state$.subscribe((s: i_State) => {
+      console.warn(s['bypassPegi']);
 
       // bypassPegi undefined
       if (s['bypassPegi'] === undefined) {
@@ -36,17 +37,20 @@ export class PegiGuard implements CanActivate {
         this.Store.dispatch('bypassPegi', confirmAge);
 
         // accept redirect
-        this.acceptRedirect = !confirmAge;
+        // this.acceptRedirect = !confirmAge;
 
         // bypass guard
-        this.activated = confirmAge
+        this.activated = confirmAge;
       }
+
+      
+      // 2.2.1. read state
+      this.activated = s['bypassPegi'];
     });
+    
+    // 2.2.2. allow/deny access + redirect
+    if (!this.activated) this.router.navigateByUrl(this.redirectTo);
 
-    // 2.a. redirect if denied
-    if (this.acceptRedirect) this.router.navigateByUrl(this.redirectTo);
-
-    // 2.b. allow/deny access
     return this.activated;
   }
 }

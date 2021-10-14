@@ -21,6 +21,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // TEST on state management
+    // write
+    this.Store.dispatch('bypassPegi', true);
+
+    // read
     this.sub = this.Store.state$.subscribe((s: i_State) => {
       console.log(s.bypassPegi);
       this.guard = s.bypassPegi;
