@@ -9,47 +9,45 @@ import { take } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class PegiGuard implements CanActivate {
-  activated = false; // guard.def
+  // confirm once
   pegiNum = 16;
   pegiDesc =
     'lenguaje soez. Puede contener malas palabras, sexualidad, amenazas y toda clase de insultos';
-  // acceptRedirect = false;
+
+  // guard + redirect
+  activated = false;
   redirectTo = '';
 
   constructor(public Store: StoreService, private router: Router) {}
 
   canActivate(): boolean {
-    // 1. Confirm only once
-    this.Store.state$.subscribe((s: i_State) => {
-      console.warn(s['bypassPegi']);
-
-      // bypassPegi undefined
+    this.Store.state$.pipe(take(1)).subscribe((s: i_State) => {
+      // 1. Confirm only once (bypassPegi undefined)
       if (s['bypassPegi'] === undefined) {
-        // confirm Age
-        const msg = `Esta página contiene ${this.pegiDesc}.
-          \nDebes tener ${this.pegiNum} años o más, para acceder a esta página
-          \nConfirmas que tienes ${this.pegiNum} años o más?.
-          \nSi no los tienes, serás redirigido a la página de Inicio`;
-
-        const confirmAge = <boolean>confirm(msg);
+        const confirmAge = <boolean>(
+          confirm(`Esta página contiene ${this.pegiDesc}.
+        \nDebes tener ${this.pegiNum} años o más, para acceder a esta página
+        \nConfirmas que tienes ${this.pegiNum} años o más?.
+        \nSi no los tienes, serás redirigido a la página de Inicio`)
+        );
 
         // define bypassPegi for session
         this.Store.dispatch('bypassPegi', confirmAge);
 
-        // accept redirect
-        // this.acceptRedirect = !confirmAge;
-
         // bypass guard
         this.activated = confirmAge;
+
+        confirmAge
+          ? console.log('acceso PEGI' + this.pegiNum + ' garantizado')
+          : console.log('acceso PEGI' + this.pegiNum + ' concedido');
       }
 
-      
       // 2.2.1. read state
-      this.activated = s['bypassPegi'];
+      console.error(s['bypassPegi']);
+
+      // 2.2.2. allow/deny access + redirect
+      if (!this.activated) this.router.navigateByUrl(this.redirectTo);
     });
-    
-    // 2.2.2. allow/deny access + redirect
-    if (!this.activated) this.router.navigateByUrl(this.redirectTo);
 
     return this.activated;
   }

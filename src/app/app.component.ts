@@ -1,35 +1,18 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { RestService } from './services/rest.service';
 import { StoreService } from './db/delta/store.service';
 import { i_Idiom } from './interfaces/express-api';
-import { take } from 'rxjs/operators';
-import { i_State } from './interfaces/state';
-import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy {
-  // TEST on state management
-  guard: boolean | undefined;
-  sub!: Subscription;
-
+export class AppComponent implements OnInit {
   constructor(private REST: RestService, private Store: StoreService) {}
 
   ngOnInit(): void {
-    // TEST on state management
-    // write
-    this.Store.dispatch('bypassPegi', true);
-
-    // read
-    this.sub = this.Store.state$.subscribe((s: i_State) => {
-      console.log(s.bypassPegi);
-      this.guard = s.bypassPegi;
-    });
-
     // STORE
     this.REST.getCollection('populars').subscribe((res: i_Idiom[]) => {
       this.Store.dispatch('setPopulars', res);
@@ -43,10 +26,6 @@ export class AppComponent implements OnInit, OnDestroy {
       this.Store.dispatch('setMonths', res);
     });
     // ...
-  }
-
-  ngOnDestroy() {
-    this.sub.unsubscribe();
   }
 
   // TODO:
