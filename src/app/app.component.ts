@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
   // FIXME: October
 
   // TODO: REFRANERO
+  // FIXME: deploy guards on cdn
   // 1. => analytics: NTL UI vs local + (read Ad Sense)
   // 2. KOA API => Authenticate HTTP CALLS to Firestore
   // 3. Make Game
