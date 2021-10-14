@@ -52,14 +52,10 @@ export class SinglePageSeoService {
           this.heading !== 'Inicio'
             ? 'refranes ' + this.heading
             : 'refranes típicos',
-          'aprender',
-          'juegos',
-          'refranes',
-          'juego de palabras',
-          'juego divertido',
-          'chistes',
+          'refranes españoles graciosos',
+          'refranes graciosos y divertidos del refranero español',
+          'refranes graciosos verdes',
           'chistes verdes',
-          'diversión',
         ],
         metas: [
           {
