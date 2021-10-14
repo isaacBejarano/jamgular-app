@@ -16,13 +16,13 @@ import { i_Idiom } from '@app/interfaces/express-api';
 })
 export class SinglePageComponent implements OnInit {
   // head
-  heading!: string;
   slug!: string;
+  heading!: string;
   metaSEO: { [i: string]: any } = {};
 
   // content
-  idioms: Observable<i_Idiom[]> = of([]);
   sub!: Subscription;
+  idioms: Observable<i_Idiom[]> = of([]);
 
   constructor(
     private renderer: Renderer2,

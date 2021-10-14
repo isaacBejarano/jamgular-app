@@ -1,44 +1,24 @@
 <main>
   <article>
-    <h1>{{ heading | titlecase }}</h1>
+    <header>
+      <h1>{{ heading | titlecase }}</h1>
 
-    <!-- PEGI-16 -->
-    <div
-      *ngIf="slug === 'vulgares'"
-      class="pegi"
-      style="border: 1px solid red; padding: 1rem; margin: 1rem; color: red"
-    >
-      <img
-        src="./assets/icons/pegi_16_sm.png"
-        width="80"
-        height="98"
-        alt="logo de pegi 16"
-        class="mr-05"
-      />
-      <img
-        src="./assets/icons/pegi_language_sm.png"
-        width="80"
-        height="80"
-        alt="logo de pegi bad language"
-      />
-
-      <hr />
-
-      <p>
-        Esta página contiene lenguaje soez. Puede contener malas palabras,
-        sexualidad, amenazas y toda clase de insultos.
-      </p>
-
-      <p>Confirmas que tienes 16 años o más?</p>
-
-      <hr />
-
-      <p>
-        Si no los tienes, navega a cualquier otra página de "Refranes Españoles"
-      </p>
-
-      <p>O vuelve a la página de inicio</p>
-    </div>
+      <!-- PEGI-16 -->
+      <div *ngIf="slug === 'vulgares'" class="pegi">
+        <img
+          src="./assets/icons/pegi_16_sm.png"
+          width="30"
+          height="37"
+          alt="logo de pegi 16"
+        />
+        <img
+          src="./assets/icons/pegi_language_sm.png"
+          width="30"
+          height="30"
+          alt="logo de pegi bad language"
+        />
+      </div>
+    </header>
 
     <!-- UL -->
     <ul class="idioms-list">

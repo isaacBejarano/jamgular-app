@@ -29,8 +29,13 @@ export class AppComponent implements OnInit {
   }
 
   // TODO:
-  // 1. => lazy laod modules
-  // 2. => modal PEGi acceptance to bypass guard on "Vulgares" route
-  // 2.5 => check lazy loading still works
-  // 3. => analytics: NTL UI vs local
+  // 4. => analytics: NTL UI vs local + (read Ad Sense)
+  // 5. Make Game
+  // 6. KOA API =>Authenticate HTTP CALLS to Firestore
+
+  // 7. Rebuild portfolio + deploy under jamstack (on ntl + redirect DNS)
+  // 8. Cancel Account in IONOS. Kekep both domains though
+
+  // 9. Back to TODO: list from jmastack explorers
+  // 10. Headless DB..., CMS... etc
 }
