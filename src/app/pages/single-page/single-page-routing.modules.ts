@@ -9,10 +9,10 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: 'vulgares',
-        component: SinglePageComponent,
+        path: 'vulgares-guard',
         canActivate: [PegiGuard],
       },
+      { path: 'vulgares', component: SinglePageComponent },
       { path: 'de-temporada', component: SinglePageComponent },
       { path: 'populares', component: SinglePageComponent },
     ],
