@@ -2,7 +2,7 @@
 
 [build]
 	publish = "dist/static"
-	command = "npm run jam:sc"
+	command = "npm run jam" # we don't wanna puppeteer process vulgares-guard -> no --scanRoute
 
 
 
