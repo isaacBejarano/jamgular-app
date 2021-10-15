@@ -1,15 +1,105 @@
+// THEME COLORS
+@import "./sass/theme";
+
 body {
   color: #4a5e65;
-  background-color: #e6e095;
-  background-color: peachpuff;
   background-color: pink;
+  background-color: peachpuff;
+  background-color: #e6e095;
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  text-align: justify;
-  //
+  user-select: none;
   box-sizing: border-box;
   overflow: visible;
   // overflow-wrap: break-word;
   // word-wrap: break-word;
+}
+
+// TYPO
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: justify;
+}
+
+h1 {
+  font-size: 1.7rem;
+  font-weight: normal;
+  text-align: left;
+  padding: 0.5rem;
+}
+
+// LINKS
+a {
+  color: inherit;
+  &:hover {
+    color: darken($primary, 30%);
+  }
+  &:active {
+    color: darken($accent, 20%);
+  }
+}
+
+// TREE
+header:not(article header),
+footer {
+  text-align: center;
+  color: $primary;
+  background-color: $ternary;
+  box-shadow: 0px -4px 4px -5px #000;
+}
+
+// PEGI
+article {
+  header {
+    display: flex;
+  }
+  .pegi {
+    margin: auto 0;
+    line-height: 0;
+    padding: 0;
+    * {
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+// UTILS
+.mw-568 {
+  max-width: 568px;
+}
+
+.mx-auto {
+  margin: 0 auto;
+}
+
+.fs-1h {
+  font-size: 1rem;
+}
+
+.d-flex-center-center {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.mt-05 {
+  margin-top: 0.5rem;
+}
+.mr-05 {
+  margin-right: 0.5rem;
+}
+
+.mb-05 {
+  margin-bottom: 0.5rem;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-none {
+  display: none;
 }

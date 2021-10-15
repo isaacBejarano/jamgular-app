@@ -2,9 +2,9 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of, Subscription } from 'rxjs';
 
-import { StoreService } from '@app/db/delta/store.service';
-import { SeoService } from '@app/services/seo.service';
-import { SinglePageSeoService } from '@app/db/single-page-seo.service';
+import { StoreService } from '@app/data/generator/store.service';
+import { SeoService } from '@app/services/seo/seo.service';
+import { SinglePageSeoService } from '@app/services/seo/single-page-seo.service';
 import { SlugOperatorService } from '@app/utils/slug-operator.service';
 import { i_State } from '@app/interfaces/state';
 import { i_Idiom } from '@app/interfaces/express-api';
@@ -16,13 +16,13 @@ import { i_Idiom } from '@app/interfaces/express-api';
 })
 export class SinglePageComponent implements OnInit {
   // head
-  heading!: string;
   slug!: string;
+  heading!: string;
   metaSEO: { [i: string]: any } = {};
 
   // content
-  idioms: Observable<i_Idiom[]> = of([]);
   sub!: Subscription;
+  idioms: Observable<i_Idiom[]> = of([]);
 
   constructor(
     private renderer: Renderer2,
