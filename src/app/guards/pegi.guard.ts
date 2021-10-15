@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { CanActivate, Route, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,8 @@ export class PegiGuard implements CanActivate {
 
   // guard + redirect
   bypassPegi!: boolean;
-  redirectTo = '';
+  fallbackURL = ''; // home
+  grantedURL = 'vulgares';
 
   constructor(private router: Router) {}
 
@@ -32,7 +33,8 @@ export class PegiGuard implements CanActivate {
     }
 
     // 2. read bypassPegi + redirect
-    if (!this.bypassPegi) this.router.navigateByUrl(this.redirectTo);
+    if (!this.bypassPegi) this.router.navigateByUrl(this.fallbackURL);
+    else this.router.navigateByUrl(this.grantedURL);
 
     return this.bypassPegi;
   }

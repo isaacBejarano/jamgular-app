@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
     idioms: {
       name: 'refranes',
       children: [
-        ['/vulgares', ''],
+        ['/vulgares-guard', ''],
         ['/de-temporada', ''],
         ['/populares', ''],
       ],
@@ -38,6 +38,11 @@ export class NavbarComponent implements OnInit {
       // order matters!
       this.idioms.children[i][0] = this.slugOp.unslash().getSlug;
       this.idioms.children[i][1] = this.slugOp.undash().getSlug;
+
+      // remove "-guard"
+      if (this.idioms.children[i][1].includes('guard'))
+        this.idioms.children[i][1] =
+          this.idioms.children[i][1].split('guard')[0];
     });
   }
 }
