@@ -6,8 +6,6 @@ export const config: ScullyConfig = {
   projectName: 'refranero-espanol-app',
   projectRoot: './src',
   outDir: './dist/static',
-  routes: {
-    // '/vulgares': { type: 'skipGuard' },
-  },
-  extraRoutes: ['/populares', '/de-temporada', '/vulgares'],
+  routes: {},
+  extraRoutes: ['/populares', '/vulgares', '/de-temporada'],
 };

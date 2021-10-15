@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { PegiGuard } from './guards/pegi.guard';
 
 const routes: Routes = [
   // eager
@@ -18,8 +17,6 @@ const routes: Routes = [
   // redirects - cascade
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
-
-// TODO: lazyload
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
