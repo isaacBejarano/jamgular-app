@@ -3,9 +3,9 @@ import { SinglePageSeoService } from '@app/services/seo/single-page-seo.service'
 import { SeoService } from '@app/services/seo/seo.service';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
 export class HomePageComponent implements OnInit {
   // head

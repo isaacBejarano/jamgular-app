@@ -2,7 +2,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of, Subscription } from 'rxjs';
 
-import { StoreService } from '@app/data/generator/store.service';
+import { StoreService } from '@app/data/store.service';
 import { SeoService } from '@app/services/seo/seo.service';
 import { SinglePageSeoService } from '@app/services/seo/single-page-seo.service';
 import { SlugOperatorService } from '@app/utils/slug-operator.service';

@@ -1,26 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { SinglePageComponent } from './single-page.component';
 import { ComponentsModule } from '@app/components/components.module';
-import { RouterModule, Routes } from '@angular/router';
-import { ModalComponent } from '@app/components/modal/modal.component';
-import { PegiGuard } from '@app/guards/pegi.guard';
+import { singlePageRoutes } from './single-page.routes';
 
-const routes: Routes = [
-  {
-    path: 'vulgares-guard',
-    // component: SinglePageComponent,
-    canActivate: [PegiGuard],
-  },
-  { path: 'vulgares', component: SinglePageComponent },
-  { path: 'de-temporada', component: SinglePageComponent },
-  { path: 'populares', component: SinglePageComponent },
-];
+
 
 @NgModule({
   declarations: [SinglePageComponent],
-  imports: [CommonModule, ComponentsModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, ComponentsModule, RouterModule.forChild(singlePageRoutes)],
   exports: [SinglePageComponent],
 })
 export class SinglePageModule {}

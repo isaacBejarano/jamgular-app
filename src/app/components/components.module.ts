@@ -5,8 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ModalComponent } from './modal/modal.component';
-import { RouterModule, Routes } from '@angular/router';
-import { SinglePageComponent } from '@app/pages/single-page/single-page.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RestService } from './services/rest.service';
-import { StoreService } from './data/generator/store.service';
+import { StoreService } from './data/store.service';
 import { i_Idiom } from './interfaces/express-api';
 
 @Component({
