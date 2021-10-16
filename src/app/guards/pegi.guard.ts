@@ -12,7 +12,7 @@ export class PegiGuard implements CanActivate {
 
   // guard + redirect
   bypassPegi!: boolean;
-  fallbackURL = ''; // home
+  fallbackURL = 'vulgares-guard';
   grantedURL = 'vulgares';
 
   constructor(private router: Router) {}
@@ -33,8 +33,8 @@ export class PegiGuard implements CanActivate {
     }
 
     // 2. read bypassPegi + redirect
-    if (!this.bypassPegi) this.router.navigateByUrl(this.fallbackURL);
-    else this.router.navigateByUrl(this.grantedURL);
+    // if (!this.bypassPegi) this.router.navigateByUrl(this.fallbackURL);
+    if (this.bypassPegi) this.router.navigateByUrl(this.grantedURL);
 
     return this.bypassPegi;
   }

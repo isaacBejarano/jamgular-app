@@ -4,10 +4,10 @@
       <h1>{{ heading | titlecase }}</h1>
 
       <!-- modal -->
-      <app-modal *ngIf="slug === 'vulgares'"></app-modal>
+      <app-modal *ngIf="slug === 'vulgares-guard'"></app-modal>
 
       <!-- PEGI-16 -->
-      <div *ngIf="slug === 'vulgares'" class="pegi">
+      <div *ngIf="slug === 'vulgares' || slug === 'vulgares-guard'" class="pegi">
         <img
           src="./assets/icons/pegi_16_sm.png"
           width="30"
@@ -24,7 +24,7 @@
     </header>
 
     <!-- UL -->
-    <ul class="idioms-list">
+    <ul *ngIf="slug !== 'vulgares-guard'" class="idioms-list">
       <li class="idiom-item" *ngFor="let idiom of idioms | async">
         <span class="fs-1h">
           {{ idiom.fields.f1 }}

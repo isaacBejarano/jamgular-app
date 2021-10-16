@@ -10,6 +10,7 @@ import { PegiGuard } from '@app/guards/pegi.guard';
 const routes: Routes = [
   {
     path: 'vulgares-guard',
+    // component: SinglePageComponent,
     canActivate: [PegiGuard],
   },
   { path: 'vulgares', component: SinglePageComponent },
