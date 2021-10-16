@@ -34,11 +34,10 @@ export class AppComponent implements OnInit {
   // 2. KOA API => Authenticate HTTP CALLS to Firestore
   // 3. Make Game
   // 4. Ad Sense
-  // 5. donations "pay me a beer" (paypal snippet)
+  // 5. donations "pay me a beer" (paypal snippet o r KOFI): https://ko-fi.com/
 
   // TODO: MONTPICOLIS
-  // 1. Links to Dropshipping Website
-  // 2. TERRABIT DNS redirects -> NTL Manual Deploy
+  // 1. Links to Dropshipping Website (and that's all. don't lose more time)
 
   // TODO: PORTFOIO
   // 1. Rebuild portfolio (migrate data to Firebase)

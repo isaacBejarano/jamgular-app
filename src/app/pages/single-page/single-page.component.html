@@ -3,6 +3,9 @@
     <header>
       <h1>{{ heading | titlecase }}</h1>
 
+      <!-- modal -->
+      <app-modal *ngIf="slug === 'vulgares'"></app-modal>
+
       <!-- PEGI-16 -->
       <div *ngIf="slug === 'vulgares'" class="pegi">
         <img
